@@ -1,16 +1,10 @@
 # project
+🎨: System Design 
 
-A new Flutter project.
+Advanced Flutter Courese 
 
-## Getting Started
+<img width="632" height="710" alt="image" src="https://github.com/user-attachments/assets/e73b295d-ef96-4338-890e-12fdfc48908c" />
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
