@@ -1,21 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:project/core/routing/app_router.dart';
+import 'package:project/docapp.dart';
 
 void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-      ),
-      home: null,
-    );
-  }
+  runApp(Docapp(appRouter: AppRouter()));
 }
