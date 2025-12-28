@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:project/core/helpers/padding.dart';
+
+import '../../core/theming/style.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -6,8 +9,24 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('data'), centerTitle: true),
-      body: const Center(child: Text('Login Screen')),
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 30),
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Text('Welcome Back', style: TextStyles.font24BoldBlue),
+                verticalSpace(15),
+                Text(
+                  'We\'re excited to have you back, can\'t wait to see what you\'ve been up to since you last \'logged in.',
+                  style: TextStyles.font14RegularGrey,
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
     );
   }
 }
