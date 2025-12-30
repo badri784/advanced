@@ -22,7 +22,6 @@ class Docapp extends StatelessWidget {
           primaryColor: ColorsManager.mainBlue,
           scaffoldBackgroundColor: Colors.white,
         ),
-        home: null,
       ),
     );
   }

@@ -33,7 +33,7 @@ class TextAndStartedButtom extends StatelessWidget {
             onPressed: () {
               context.pushnamed(Routes.loginScreen);
             },
-            child: Text('Get Started', style: TextStyles.font16interwhite),
+            child: Text('Get Started', style: TextStyles.font16MediumWhite),
           ),
         ],
       ),
