@@ -17,6 +17,7 @@ class TermsAndConditions extends StatelessWidget {
             style: TextStyles.font11RegularLightGrayForText,
           ),
           TextSpan(
+            onEnter: (event) {},
             text: 'Terms & Conditions',
             style: TextStyles.font11RegularLightGrayForText.copyWith(
               color: ColorsManager.black,
