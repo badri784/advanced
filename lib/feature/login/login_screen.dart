@@ -1,26 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:project/core/helpers/extensions.dart';
+import 'package:project/core/routing/routes.dart';
+import 'package:project/feature/login/data/models/model_request_body.dart';
+import 'package:project/feature/login/logic/cubit/login_cubit.dart';
 import 'package:project/feature/login/wedget/already_have_account.dart';
+import 'package:project/feature/login/wedget/build_bloc_listener.dart';
+import 'package:project/feature/login/wedget/email_and_password.dart';
 import 'package:project/feature/login/wedget/terms_and_conditions.dart';
 
 import '../../core/helpers/padding.dart';
 import '../../core/widget/app_text_button.dart';
-import '../../core/widget/app_text_form_feild.dart';
 import '../../core/theming/style.dart';
 
-class LoginScreen extends StatefulWidget {
+class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
-}
-
-class _LoginScreenState extends State<LoginScreen> {
-  bool isObscure = true;
-  @override
   Widget build(BuildContext context) {
-    final formKey = GlobalKey<FormState>();
-
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -36,48 +34,29 @@ class _LoginScreenState extends State<LoginScreen> {
                   style: TextStyles.font14RegularGrey,
                 ),
                 verticalSpace(38),
-                Form(
-                  key: formKey,
-
-                  child: Column(
-                    children: [
-                      AppTextFormFeildWidget(
-                        textStyle: TextStyles.font24BoldBlue,
-                        hintText: 'Email',
-                        hintStyle: TextStyles.font14RegularLighterGray,
+                Column(
+                  children: [
+                    const EmailAndPassword(),
+                    Align(
+                      alignment: AlignmentDirectional.centerEnd,
+                      child: Text(
+                        'Forget Password?',
+                        style: TextStyles.font12RigularMainBlue,
                       ),
-                      verticalSpace(20),
-                      AppTextFormFeildWidget(
-                        suffixIcon: IconButton(
-                          onPressed: () {
-                            setState(() {
-                              isObscure = !isObscure;
-                            });
-                          },
-                          icon: Icon(
-                            isObscure ? Icons.visibility : Icons.visibility_off,
-                          ),
-                        ),
-                        obscureText: isObscure,
-                        hintText: 'Password',
-                        hintStyle: TextStyles.font14RegularLighterGray,
-                      ),
-                      verticalSpace(20),
-                      Align(
-                        alignment: AlignmentDirectional.centerEnd,
-                        child: Text(
-                          'Forget Password?',
-                          style: TextStyles.font12RigularMainBlue,
-                        ),
-                      ),
-                      verticalSpace(50),
-                      AppTextButton(buttontext: 'Login', onPressed: () {}),
-                      verticalSpace(20),
-                      const TermsAndConditions(),
-                      verticalSpace(70),
-                      const AlreadyHaveAccount(),
-                    ],
-                  ),
+                    ),
+                    verticalSpace(28),
+                    AppTextButton(
+                      buttontext: 'Login',
+                      onPressed: () {
+                        validated(context);
+                      },
+                    ),
+                    verticalSpace(20),
+                    const TermsAndConditions(),
+                    verticalSpace(50),
+                    const AlreadyHaveAccount(),
+                    const BuildBlocListener(),
+                  ],
                 ),
               ],
             ),
@@ -85,5 +64,17 @@ class _LoginScreenState extends State<LoginScreen> {
         ),
       ),
     );
+  }
+
+  void validated(BuildContext context) {
+    if (context.read<LoginCubit>().formKey.currentState!.validate()) {
+      context.read<LoginCubit>().emitLoginState(
+        ModelRequestBody(
+          email: context.read<LoginCubit>().emailController.text,
+          password: context.read<LoginCubit>().passwordController.text,
+        ),
+      );
+      // context.pushReplacementname(Routes.homeScreen);
+    }
   }
 }

@@ -4,8 +4,10 @@ import 'package:project/core/theming/style.dart';
 import '../theming/colors.dart';
 
 class AppTextFormFeildWidget extends StatelessWidget {
-  final EdgeInsetsGeometry? contentPadding;
+  final TextEditingController? controller;
+  final Function(String?) validator;
   final String hintText;
+  final EdgeInsetsGeometry? contentPadding;
   final TextStyle? hintStyle;
   final Widget? suffixIcon;
   final bool? obscureText;
@@ -17,6 +19,8 @@ class AppTextFormFeildWidget extends StatelessWidget {
 
   const AppTextFormFeildWidget({
     super.key,
+    this.controller,
+    required this.validator,
     required this.hintText,
     this.hintStyle,
     this.obscureText,
@@ -32,6 +36,8 @@ class AppTextFormFeildWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      keyboardType: keyboardType,
+      controller: controller,
       obscureText: obscureText ?? false,
       decoration: InputDecoration(
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(16)),
@@ -53,6 +59,10 @@ class AppTextFormFeildWidget extends StatelessWidget {
               ),
               borderRadius: BorderRadius.circular(16),
             ),
+        errorBorder: OutlineInputBorder(
+          borderSide: const BorderSide(color: ColorsManager.red, width: 1.3),
+          borderRadius: BorderRadius.circular(16),
+        ),
         focusedErrorBorder:
             focusedBorder ??
             const OutlineInputBorder(
@@ -62,6 +72,9 @@ class AppTextFormFeildWidget extends StatelessWidget {
         fillColor: ColorsManager.backgroundcolor,
       ),
       style: TextStyles.font14MediumDarkBlue,
+      validator: (value) {
+        return validator(value);
+      },
     );
   }
 }
