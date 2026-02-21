@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'widget/text_and_started_buttom.dart';
 import 'widget/doc_logo_and_name.dart';
 import 'widget/image_and_text.dart';
+import 'widget/text_and_started_buttom.dart';
 
 class OnbordingScreen extends StatelessWidget {
   const OnbordingScreen({super.key});

@@ -1,5 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:project/feature/login/data/models/user_data.dart';
+import 'user_data.dart';
 part 'model_response.g.dart';
 
 @JsonSerializable()

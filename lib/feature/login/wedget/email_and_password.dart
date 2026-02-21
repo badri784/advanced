@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:project/core/helpers/padding.dart';
-import 'package:project/core/theming/style.dart';
-import 'package:project/core/widget/app_text_form_feild.dart';
-import 'package:project/feature/login/logic/cubit/login_cubit.dart';
+import '../../../core/helpers/padding.dart';
+import '../../../core/theming/style.dart';
+import '../../../core/widget/app_text_form_feild.dart';
+import '../logic/cubit/login_cubit.dart';
 
 class EmailAndPassword extends StatefulWidget {
   const EmailAndPassword({super.key});
@@ -21,6 +21,12 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
   void initState() {
     super.initState();
     controllerr = context.read<LoginCubit>().emailController;
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    controllerr.dispose();
   }
 
   @override

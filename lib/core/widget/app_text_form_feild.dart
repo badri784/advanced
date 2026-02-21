@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:project/core/theming/style.dart';
+import '../theming/style.dart';
 import '../theming/colors.dart';
 
 class AppTextFormFeildWidget extends StatelessWidget {

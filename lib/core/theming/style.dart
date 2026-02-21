@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:project/core/theming/colors.dart';
-import 'package:project/core/theming/font_weight_helper.dart';
+import 'colors.dart';
+import 'font_weight_helper.dart';
 
 class TextStyles {
   static TextStyle font32BoldBlue = TextStyle(
