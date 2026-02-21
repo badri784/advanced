@@ -1,17 +1,17 @@
-import 'package:project/core/networking/api_error_handler.dart';
-import 'package:project/core/networking/api_result.dart';
-import 'package:project/core/networking/wep_services.dart';
-import 'package:project/feature/login/data/models/model_request_body.dart';
-import 'package:project/feature/login/data/models/model_response.dart';
+import '../../../../core/networking/api_error_handler.dart';
+import '../../../../core/networking/api_result.dart';
+import '../../../../core/networking/wep_services.dart';
+import '../models/model_request_body.dart';
+import '../models/model_response.dart';
 
 class LoginRepo {
-  final WepServices wepServices;
+  final WebServices webServices;
 
-  LoginRepo(this.wepServices);
+  LoginRepo(this.webServices);
 
   Future<ApiResult<LoginResponse>> login(ModelRequestBody loginResponse) async {
     try {
-      final response = await wepServices.login(loginResponse);
+      final response = await webServices.login(loginResponse);
       return ApiResult.success(response);
     } catch (error) {
       return ApiResult.failure(ErrorHandler.handle(error));

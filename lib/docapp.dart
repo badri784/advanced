@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:project/core/routing/app_router.dart';
-import 'package:project/core/routing/routes.dart';
-import 'package:project/core/theming/colors.dart';
+import 'core/routing/app_router.dart';
+import 'core/routing/routes.dart';
+import 'core/theming/colors.dart';
 
 class Docapp extends StatelessWidget {
   final AppRouter appRouter;

@@ -1,8 +1,8 @@
 import 'package:flutter/widgets.dart';
-import 'package:project/core/networking/api_result.dart';
-import 'package:project/feature/login/data/models/model_request_body.dart';
-import 'package:project/feature/login/data/repos/login_repo.dart';
-import 'package:project/feature/login/logic/cubit/login_state.dart';
+import '../../../../core/networking/api_result.dart';
+import '../../data/models/model_request_body.dart';
+import '../../data/repos/login_repo.dart';
+import 'login_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class LoginCubit extends Cubit<LoginState> {

@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:project/core/networking/api_constant.dart';
+import 'api_constant.dart';
 
 import 'api_error_model.dart';
 
@@ -187,6 +187,6 @@ ApiErrorModel _handleError(DioException error) {
 }
 
 class ApiInternalStatus {
-  static const int SUCCESS = 0;
+  static const int UCCESS = 0;
   static const int FAILURE = 1;
 }

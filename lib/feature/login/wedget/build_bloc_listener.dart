@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:project/core/helpers/extensions.dart';
-import 'package:project/core/routing/routes.dart';
-import 'package:project/core/theming/colors.dart';
-import 'package:project/core/theming/style.dart';
-import 'package:project/feature/login/logic/cubit/login_cubit.dart';
-import 'package:project/feature/login/logic/cubit/login_state.dart';
+import '../../../core/helpers/extensions.dart';
+import '../../../core/routing/routes.dart';
+import '../../../core/theming/colors.dart';
+import '../../../core/theming/style.dart';
+import '../logic/cubit/login_cubit.dart';
+import '../logic/cubit/login_state.dart';
 
 class BuildBlocListener extends StatelessWidget {
   const BuildBlocListener({super.key});
