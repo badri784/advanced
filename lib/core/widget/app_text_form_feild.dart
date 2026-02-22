@@ -16,8 +16,9 @@ class AppTextFormFeildWidget extends StatelessWidget {
   final InputBorder? focusedBorder;
   final Color? backgroundcolor;
   final TextStyle? textStyle;
-
+  final Function()? onTapOutside;
   const AppTextFormFeildWidget({
+    this.onTapOutside,
     super.key,
     this.controller,
     required this.validator,
@@ -36,6 +37,7 @@ class AppTextFormFeildWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      onTapOutside: (event) => onTapOutside,
       keyboardType: keyboardType,
       controller: controller,
       obscureText: obscureText ?? false,

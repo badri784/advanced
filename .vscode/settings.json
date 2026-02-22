@@ -1,0 +1,8 @@
+{
+  "files.exclude": {
+    "**/*.gen.cs": true,
+    "**/build": false,
+    "**/*.js": { "when": "$(basename).ts" },
+    "**/*.map": true
+  }
+}
