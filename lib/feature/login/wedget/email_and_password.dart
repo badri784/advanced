@@ -16,7 +16,6 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
   late TextEditingController controllerr;
 
   bool isObscure = true;
-
   @override
   void initState() {
     super.initState();
@@ -36,6 +35,9 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
       child: Column(
         children: [
           AppTextFormFeildWidget(
+            onTapOutside: () {
+              FocusScope.of(context).unfocus();
+            },
             keyboardType: TextInputType.emailAddress,
             controller: context.read<LoginCubit>().emailController,
             textStyle: TextStyles.font24BoldBlue,
@@ -53,6 +55,9 @@ class _EmailAndPasswordState extends State<EmailAndPassword> {
           ),
           verticalSpace(20),
           AppTextFormFeildWidget(
+            onTapOutside: () {
+              FocusScope.of(context).unfocus();
+            },
             hintText: 'Password',
             keyboardType: TextInputType.multiline,
             controller: context.read<LoginCubit>().passwordController,

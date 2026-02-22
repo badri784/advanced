@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'data/models/model_request_body.dart';
 import 'logic/cubit/login_cubit.dart';
 import 'wedget/already_have_account.dart';
 import 'wedget/build_bloc_listener.dart';
@@ -66,12 +65,7 @@ class LoginScreen extends StatelessWidget {
 
   void validated(BuildContext context) {
     if (context.read<LoginCubit>().formKey.currentState!.validate()) {
-      context.read<LoginCubit>().emitLoginState(
-        ModelRequestBody(
-          email: context.read<LoginCubit>().emailController.text,
-          password: context.read<LoginCubit>().passwordController.text,
-        ),
-      );
+      context.read<LoginCubit>().emitLoginState();
       // context.pushReplacementname(Routes.homeScreen);
     }
   }

@@ -14,7 +14,22 @@ class SignUpDetail extends StatefulWidget {
 }
 
 class _SignUpDetailState extends State<SignUpDetail> {
+  late TextEditingController controller;
+
   bool isObscure = true;
+
+  @override
+  void initState() {
+    super.initState();
+    controller = context.read<SignupCubit>().emailController;
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    controller.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -22,6 +37,9 @@ class _SignUpDetailState extends State<SignUpDetail> {
       child: Column(
         children: [
           AppTextFormFeildWidget(
+            onTapOutside: () {
+              FocusScope.of(context).unfocus();
+            },
             controller: context.read<SignupCubit>().nameController,
             validator: (String? value) {
               if (value == null || value.isEmpty) {
@@ -35,6 +53,9 @@ class _SignUpDetailState extends State<SignUpDetail> {
           ),
           verticalSpace(15),
           AppTextFormFeildWidget(
+            onTapOutside: () {
+              FocusScope.of(context).unfocus();
+            },
             controller: context.read<SignupCubit>().phoneController,
             validator: (String? value) {
               if (value == null || value.isEmpty) {
@@ -48,6 +69,9 @@ class _SignUpDetailState extends State<SignUpDetail> {
           ),
           verticalSpace(15),
           AppTextFormFeildWidget(
+            onTapOutside: () {
+              FocusScope.of(context).unfocus();
+            },
             controller: context.read<SignupCubit>().emailController,
             validator: (String? value) {
               if (value == null || value.isEmpty) {
@@ -63,6 +87,9 @@ class _SignUpDetailState extends State<SignUpDetail> {
           ),
           verticalSpace(15),
           AppTextFormFeildWidget(
+            onTapOutside: () {
+              FocusScope.of(context).unfocus();
+            },
             controller: context.read<SignupCubit>().passwordController,
             validator: (String? value) {
               if (value == null || value.isEmpty) {
@@ -70,9 +97,6 @@ class _SignUpDetailState extends State<SignUpDetail> {
               }
               if (value.length < 8) {
                 return 'Please enter a strong Password';
-              }
-              if (!value.contains('+')) {
-                return 'the password must include a spichal character';
               }
             },
             hintText: 'Password :',
@@ -90,6 +114,9 @@ class _SignUpDetailState extends State<SignUpDetail> {
           ),
           verticalSpace(15),
           AppTextFormFeildWidget(
+            onTapOutside: () {
+              FocusScope.of(context).unfocus();
+            },
             suffixIcon: IconButton(
               onPressed: () {
                 setState(() {
